@@ -15,6 +15,8 @@ Time PID 0    PID 1    CPU IOs
 10   DONE     RUN:cpu  1
 ```
 - Reasoning: Both processes are pure CPU-bound (Y=100), so they never enter BLOCKED. The CPU column is 1 for all 10 ticks, giving 100% utilization; total time = 5+5 = 10.
+- Verified result: Total Time 10; CPU Busy 10 (100.00%); IO Busy 0 (0.00%).
+- Analysis: Matches the prediction exactly. Two CPU-bound processes run sequentially with nothing to interleave, so the CPU stays fully loaded.
 
 ## Q2
 - Prediction: PID0 runs 4 CPU instructions (4:100) for ticks 1-4; PID1 (1:0) does a single I/O: RUN:io takes 1 tick, then BLOCKED for 5 ticks, then RUN:io_done takes 1 tick. PID1 only starts after PID0 finishes, and the CPU idles while PID1 blocks. Total time 11, CPU utilization 6/11 ~= 54.55%.
@@ -33,6 +35,8 @@ Time PID 0    PID 1      CPU IOs
 11   DONE     RUN:io_done 1
 ```
 - Reasoning: One I/O costs 3 CPU ticks (RUN:io + RUN:io_done) plus 5 BLOCKED ticks. PID0 uses 4 ticks, PID1 uses 6 ticks, but they run serially without overlap, so total is 11 ticks. The CPU is idle only during PID1's 5 blocked ticks.
+- Verified result: Total Time 11; CPU Busy 6 (54.55%); IO Busy 5 (45.45%).
+- Analysis: Matches the prediction. Key point: during PID1's 5 blocked ticks the CPU is completely idle because the only runnable process is waiting on I/O.
 
 ## Q3
 - Prediction: PID0 (1:0) issues I/O first; with the default SWITCH_ON_IO the scheduler immediately switches to PID1. PID1's 4 CPU instructions run during PID0's blocked period (ticks 2-5), so the CPU is never idle. PID0's I/O completes at tick 7. Total time 7, CPU utilization 6/7 ~= 85.71%.
@@ -46,7 +50,9 @@ Time PID 0      PID 1    CPU IOs
 6    BLOCKED    DONE         1
 7*   RUN:io_done DONE    1
 ```
-- Reasoning: Same processes as Q2 but in opposite order. The process that issues I/O runs first; while it blocks, the other CPU process immediately takes over. Only tick 6 (PID1 done, PID0 not yet finished) leaves the CPU idle for 1 tick.
+- Reasoning: Same processes as Q2 but in opposite order. The process that issues I/O runs first; while it blocks, the other CPU process immediately takes over, so only tick 6 (PID1 done, PID0 not yet finished) leaves the CPU idle for 1 tick.
+- Verified result: Total Time 7; CPU Busy 6 (85.71%); IO Busy 5 (71.43%).
+- Analysis: Matches the prediction. Compared with Q2, putting the I/O process first lets its blocking period be covered by the other CPU process, cutting total time from 11 to 7.
 
 ## Q4
 - Prediction: Same processes as Q3, but with -S SWITCH_ON_END: the scheduler does NOT switch when a process issues I/O. After PID0 enters BLOCKED the CPU simply waits idle; PID1 only gets the CPU after PID0 fully finishes (tick 7), running ticks 8-11. Total time 11, CPU utilization 6/11 ~= 54.55%.
@@ -65,6 +71,8 @@ Time PID 0      PID 1    CPU IOs
 11   DONE       RUN:cpu  1
 ```
 - Reasoning: SWITCH_ON_END only switches when the current process "finishes"; issuing an I/O does not count as finishing, so the CPU spins idle during PID0's 5 blocked ticks.
+- Verified result: Total Time 11; CPU Busy 6 (54.55%); IO Busy 5 (45.45%).
+- Analysis: Matches the prediction. "Do not switch on I/O" wastes the entire blocking period; compared with Q3's 7 ticks the efficiency is much worse.
 
 ## Q5
 - Prediction: Same processes as Q3/Q4, but using the default -S SWITCH_ON_IO (i.e. the Q3 setting). The result is identical to Q3: total time 7, CPU utilization 85.71%.
@@ -79,6 +87,8 @@ Time PID 0      PID 1    CPU IOs
 7*   RUN:io_done DONE    1
 ```
 - Reasoning: SWITCH_ON_IO switches when an I/O is issued, letting PID1 use the CPU during the blocking period; this contrasts with Q4's SWITCH_ON_END.
+- Verified result: Total Time 7; CPU Busy 6 (85.71%); IO Busy 5 (71.43%).
+- Analysis: Matches the prediction and identical to Q3. The Q4->Q5 difference (11 vs 7) clearly shows the CPU-utilization gain from "switch on I/O".
 
 ## Q6
 - Prediction: Four processes (PID0 does 3 I/Os, PID1-3 each run 5 CPU instructions), with -S SWITCH_ON_IO -I IO_RUN_LATER. After PID0's first I/O it switches to PID1-3 which each run their 5 CPU instructions; when the I/O finishes PID0 returns to READY but must wait its turn (IO_RUN_LATER), so its 3 I/Os are spread out and the I/O device sits idle for long stretches while the CPUs are busy. Predict total time is fairly long (about 31 ticks), CPU utilization moderate (about 68%).
@@ -117,6 +127,8 @@ Time PID 0    PID 1    PID 2    PID 3    CPU IOs
 31*  RUN:io_done DONE   DONE     DONE    1
 ```
 - Reasoning: IO_RUN_LATER means PID0 cannot immediately resume after its I/O completes; it must wait until the other processes have their turn. So a lot of CPU work (PID1-3) is inserted between its 3 I/Os, and the I/O device is idle for many ticks.
+- Verified result: Total Time 31; CPU Busy 21 (67.74%); IO Busy 15 (48.39%).
+- Analysis: Matches the prediction. The I/O device is busy only 48.39% of the time, showing it sits idle for long stretches between PID0's I/Os -- the cost of IO_RUN_LATER.
 
 ## Q7
 - Prediction: Same processes as Q6 and -S SWITCH_ON_IO, but with -I IO_RUN_IMMEDIATE: each time PID0's I/O completes it runs again immediately, so its 3 I/Os happen back-to-back and the CPU is always busy with PID0's RUN:io_done/RUN:io during the I/O gaps. Predict total time 21, CPU utilization 100%.
@@ -145,7 +157,17 @@ Time PID 0    PID 1    PID 2    PID 3    CPU IOs
 21*  RUN:io_done DONE   DONE     DONE    1
 ```
 - Reasoning: IO_RUN_IMMEDIATE lets the I/O-heavy process "jump the queue" and resume right away, so its 3 I/Os run consecutively with no idle CPU tick; total time is much shorter than Q6.
+- Verified result: Total Time 21; CPU Busy 21 (100.00%); IO Busy 15 (71.43%).
+- Analysis: Matches the prediction. Compared with Q6's 31 ticks / 67.74% CPU, Q7 needs only 21 ticks with a fully loaded CPU -- rerunning an I/O-heavy process immediately overlaps I/O waiting with CPU work and greatly improves throughput.
 
 ## Q8
 - Prediction: -s 1/2/3 -l 3:50,3:50. First predict from the instruction list, then compare the effect of -I IO_RUN_IMMEDIATE and -S SWITCH_ON_END. Intuition: -S SWITCH_ON_END is worst (the I/O process is not switched out, so the other process must wait for it to finish entirely); -I IO_RUN_IMMEDIATE should let the I/O process resume promptly and shorten total time.
 - Reasoning: Each process has 3 instructions, each 50% likely to be CPU or I/O. The default SWITCH_ON_IO switches on I/O; SWITCH_ON_END forces serial execution; IO_RUN_IMMEDIATE lets the I/O completer jump the queue. The instruction sequences differ per seed, but the trend of the conclusions should be the same.
+- Verified result:
+  - seed 1: default Total 15 (CPU 53.33%, IO 66.67%); IO_RUN_IMMEDIATE Total 15 (CPU 53.33%, IO 66.67%); SWITCH_ON_END Total 18 (CPU 44.44%, IO 55.56%)
+  - seed 2: default Total 16 (CPU 62.50%, IO 87.50%); IO_RUN_IMMEDIATE Total 16 (CPU 62.50%, IO 87.50%); SWITCH_ON_END Total 30 (CPU 33.33%, IO 66.67%)
+  - seed 3: default Total 18 (CPU 50.00%, IO 61.11%); IO_RUN_IMMEDIATE Total 17 (CPU 52.94%, IO 64.71%); SWITCH_ON_END Total 24 (CPU 37.50%, IO 62.50%)
+- Analysis:
+  - SWITCH_ON_END is clearly worst under all three seeds (18/30/24) because it forces the I/O process to finish entirely before the other runs, leaving the CPU idle for long blocking periods.
+  - IO_RUN_IMMEDIATE is identical to default for seeds 1 and 2: the other process finishes early (or the I/Os already overlap), so jumping the queue changes nothing.
+  - Only for seed 3 does IO_RUN_IMMEDIATE (17) beat default (18) by 1 tick: here both processes' I/O completions coincide, and jumping the queue lets PID0's trailing CPU instruction run earlier, saving 1 tick. This shows the benefit of IO_RUN_IMMEDIATE depends on whether I/O completions overlap with other processes -- the more they overlap, the bigger the gain.
