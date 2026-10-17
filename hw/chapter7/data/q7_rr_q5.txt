@@ -1,0 +1,26 @@
+ARG policy RR
+ARG jlist 10,10,10
+
+Here is the job list, with the run time of each job: 
+  Job 0 ( length = 10.0 )
+  Job 1 ( length = 10.0 )
+  Job 2 ( length = 10.0 )
+
+
+** Solutions **
+
+Execution trace:
+  [ time   0 ] Run job   0 for 5.00 secs
+  [ time   5 ] Run job   1 for 5.00 secs
+  [ time  10 ] Run job   2 for 5.00 secs
+  [ time  15 ] Run job   0 for 5.00 secs ( DONE at 20.00 )
+  [ time  20 ] Run job   1 for 5.00 secs ( DONE at 25.00 )
+  [ time  25 ] Run job   2 for 5.00 secs ( DONE at 30.00 )
+
+Final statistics:
+  Job   0 -- Response: 0.00  Turnaround 20.00  Wait 10.00
+  Job   1 -- Response: 5.00  Turnaround 25.00  Wait 15.00
+  Job   2 -- Response: 10.00  Turnaround 30.00  Wait 20.00
+
+  Average -- Response: 5.00  Turnaround 25.00  Wait 15.00
+
