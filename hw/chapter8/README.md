@@ -11,7 +11,7 @@ OSTEP 8장 MLFQ(Multi-Level Feedback Queue) 과제이다. mlfq.py 시뮬레이�
 
 Codespace: ostep-codespace-lab (fictional-umbrella)
 시뮬레이터: ext/ostep-homework/cpu-sched-mlfq/mlfq.py
-Q5/Q6: Codespace에서 공식 환경으로 재실행 (codespace-run.log)
+Q4/Q5/Q6: Codespace에서 공식 환경으로 재실행 (codespace-run.log)
 
 ## 파일 구조
 
