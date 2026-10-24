@@ -266,10 +266,95 @@ Job 1이 강등되어 Job 0의 실행 기회가 늘어난다.
 | 8.6 | `-S`로 gaming 가능(111), 없으면 방지(223) |
 | 8.7 | 낮은 큐 quantum=40, allotment=2 |
 
-## 결론 (Q1–Q2)
+
+## Q3. MLFQ를 Round-Robin으로 설정
+
+질문: 어떤 파라미터로 MLFQ를 RR(Round-Robin) 스케줄러와 동일하게 만들 수 있을까?
+
+### 설정 방법
+
+핵심은 **`-n 1` (단일 큐)**이다.
+
+| 파라미터 | 값 | 의미 |
+|----------|-----|------|
+| `-n 1` | 1개 큐 | 우선순위 레벨이 하나뿐 → 강등 없음 |
+| `-q 10` | quantum=10ms | RR time slice |
+| `-j 3 -m 30 -M 0` | 3 jobs, 최대 30ms, I/O 없음 | 검증용 workload |
+
+MLFQ가 RR로 동작하는 이유:
+- 여러 큐가 없으면 job이 한 단계 아래로 내려갈 곳이 없다.
+- allotment을 다 써도 같은 큐(Priority 0)에 남는다.
+- 같은 큐에서는 FIFO + time slice로 CPU를 나누므로, 이것이 곧 Round-Robin이다.
+
+명령:
+```
+./mlfq.py -n 1 -q 10 -j 3 -m 30 -M 0 -c
+```
+
+출력 파일: data/q3-rr.txt
+
+### 예측
+
+3개 job이 동시 도착하면, 각 job이 10ms씩 번갈아 실행된다.
+time 0–9: Job 0, time 10–19: Job 1, time 20–29: Job 2,
+time 30–39: Job 0, time 40–49: Job 1, … 순서로 라운드 로빈.
+
+| Job | response | turnaround |
+|-----|----------|------------|
+| 0 | 0 | 53 |
+| 1 | 10 | 43 |
+| 2 | 20 | 48 |
+
+검증: trace에서 Job 0→1→2→0→1→2→0 순서로 10ms quantum씩 실행되었고,
+시뮬레이터 결과와 일치했다. 단일 큐 MLFQ = RR가 확인되었다.
+
+
+## Q3. MLFQ를 Round-Robin으로 설정
+
+질문: 어떤 파라미터로 MLFQ를 RR(Round-Robin) 스케줄러와 동일하게 만들 수 있을까?
+
+### 설정 방법
+
+핵심은 **`-n 1` (단일 큐)**이다.
+
+| 파라미터 | 값 | 의미 |
+|----------|-----|------|
+| `-n 1` | 1개 큐 | 우선순위 레벨이 하나뿐 → 강등 없음 |
+| `-q 10` | quantum=10ms | RR time slice |
+| `-j 3 -m 30 -M 0` | 3 jobs, 최대 30ms, I/O 없음 | 검증용 workload |
+
+MLFQ가 RR로 동작하는 이유:
+- 여러 큐가 없으면 job이 한 단계 아래로 내려갈 곳이 없다.
+- allotment을 다 써도 같은 큐(Priority 0)에 남는다.
+- 같은 큐에서는 FIFO + time slice로 CPU를 나누므로, 이것이 곧 Round-Robin이다.
+
+명령:
+```
+./mlfq.py -n 1 -q 10 -j 3 -m 30 -M 0 -c
+```
+
+출력 파일: data/q3-rr.txt
+
+### 예측
+
+3개 job이 동시 도착하면, 각 job이 10ms씩 번갈아 실행된다.
+time 0–9: Job 0, time 10–19: Job 1, time 20–29: Job 2,
+time 30–39: Job 0, time 40–49: Job 1, … 순서로 라운드 로빈.
+
+| Job | response | turnaround |
+|-----|----------|------------|
+| 0 | 0 | 53 |
+| 1 | 10 | 43 |
+| 2 | 20 | 48 |
+
+검증: trace에서 Job 0→1→2→0→1→2→0 순서로 10ms quantum씩 실행되었고,
+시뮬레이터 결과와 일치했다. 단일 큐 MLFQ = RR가 확인되었다.
+
+## 결론 (Q1–Q3)
 
 Q1에서 2 jobs, 2 queues 환경의 MLFQ 기본 동작을 확인했고,
 Q2에서 교재 Figure 8.2–8.7의 7가지 시나리오를 명령으로 재현했다.
+Q3에서 `-n 1` 단일 큐 설정으로 MLFQ가 RR과 동일하게 동작함을 확인했다.
 모든 예측이 시뮬레이터(-c) 결과와 일치했다.
 
 시뮬레이터 원본 출력은 hw/chapter8/data/ 폴더에 있다.
