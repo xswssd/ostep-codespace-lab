@@ -440,13 +440,83 @@ I/O job이 살아 있는 동안 Job 0이 정확히 5.0% CPU를 받았다.
 이는 `10ms / 200ms = 5%` 유도와 일치한다.
 
 
-## 결론 (Q1–Q5)
+## Q6. `-I` 플래그 (I/O 완료 후 큐 위치)
+
+질문: I/O가 끝난 job은 큐의 **앞(head)** 에 넣을까, **뒤(tail)** 에 넣을까?
+`-I` 플래그가 이 동작을 어떻게 바꾸는지 같은 workload로 비교하라.
+
+### `-I` 동작 (mlfq.py)
+
+| 설정 | I/O 완료 후 큐 삽입 | 코드 |
+|------|------------------|------|
+| 기본 ( `-I` 없음) | **큐 뒤** (`append`) | FIFO 순서 유지 |
+| `-I` (iobump) | **큐 앞** (`insert(0)`) | I/O 완료 job이 즉시 다음 실행 |
+
+### Workload (동일)
+
+| 파라미터 | 값 | 의미 |
+|----------|-----|------|
+| `-n 2 -q 10` | 2개 큐, quantum=10ms | MLFQ |
+| `-l 0,50,0:0,50,11` | Job0: CPU 50ms / Job1: I/O 매 11ms | I/O 완료 후 큐 위치 비교 |
+| `-i 1 -S` | I/O 1ms, 구 규칙 | I/O job이 주기적으로 블로킹 |
+
+**`-I` 없음:**
+```
+./mlfq.py -n 2 -q 10 -l 0,50,0:0,50,11 -i 1 -S -c
+```
+출력 파일: data/q6-no-I.txt
+
+**`-I` 있음:**
+```
+./mlfq.py -n 2 -q 10 -l 0,50,0:0,50,11 -i 1 -S -I -c
+```
+출력 파일: data/q6-with-I.txt
+
+### 예측
+
+I/O 완료 시:
+- **`-I` 없음:** Job 1이 큐 뒤로 가므로 Job 0이 먼저 계속 실행된다.
+- **`-I` 있음:** Job 1이 큐 앞으로 가므로 I/O 직후 Job 1이 바로 CPU를 받는다.
+
+### trace 차이 (첫 I/O 이후, time 31–32)
+
+**`-I` 없음** — time 32 `IO_DONE` 후 Job 0 계속 실행:
+```
+time 31: IO_START by JOB 1
+time 32: IO_DONE by JOB 1 → Run JOB 0  (Job 1은 큐 뒤)
+time 33–41: Run JOB 0 연속
+time 42: Run JOB 1
+```
+
+**`-I` 있음** — time 32 `IO_DONE` 후 Job 1 즉시 실행:
+```
+time 31: IO_START by JOB 1
+time 32: IO_DONE by JOB 1 → Run JOB 1  (Job 1이 큐 앞으로 삽입)
+time 33–41: Run JOB 1 연속
+time 42: Run JOB 0
+```
+
+### 통계 비교
+
+| | Job 0 response | Job 0 turnaround | Job 1 response | Job 1 turnaround |
+|---|----------------|------------------|----------------|------------------|
+| `-I` 없음 | 0 | **72** | 10 | 102 |
+| `-I` 있음 | 0 | **93** | 10 | **101** |
+
+검증:
+- Job 1 response는 동일(10)이지만, `-I`로 I/O 후 즉시 실행되어 turnaround가 102→101로 약간 개선되었다.
+- Job 0 turnaround는 72→93으로 증가했다. I/O job이 줄을 서지 않고 앞에 끼어들어 CPU job이 더 오래 기다렸다.
+- `-I`는 인터랙티브(I/O) job의 반응성을 높이지만, CPU 집약 job의 공정성을 해칠 수 있다.
+
+
+## 결론 (Q1–Q6)
 
 Q1에서 2 jobs, 2 queues 환경의 MLFQ 기본 동작을 확인했고,
 Q2에서 교재 Figure 8.2–8.7의 7가지 시나리오를 명령으로 재현했다.
 Q3에서 `-n 1` 단일 큐 설정으로 MLFQ가 RR과 동일하게 동작함을 확인했다.
 Q4에서 `-S`와 `ioFreq=99`(quantum=100)로 gaming job이 time 100–199 구간에서 CPU 99%를 차지함을 확인했다.
 Q5에서 `-B 200`(quantum=10)으로 기아 job이 최소 5% CPU를 받음을 유도하고 trace로 검증했다.
+Q6에서 `-I`가 I/O 완료 job을 큐 앞에 넣어 인터랙티브 job에 유리하고 CPU job 대기 시간을 늘림을 확인했다.
 모든 예측이 시뮬레이터(-c) 결과와 일치했다.
 
 시뮬레이터 원본 출력은 hw/chapter8/data/ 폴더에 있다.
