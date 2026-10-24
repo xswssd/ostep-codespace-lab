@@ -331,7 +331,7 @@ quantum=100ms일 때 **99ms마다 I/O**(`ioFreq=99`)를 내면, 한 주기(100 t
 ```
 
 출력 파일: data/q4-gaming.txt
-n실행 환경: GitHub Codespace (`fictional-umbrella`)에서 공식 `mlfq.py`로 재실행함 (`data/codespace-run.log`).
+실행 환경: GitHub Codespace (`fictional-umbrella`)에서 공식 `mlfq.py`로 재실행함 (`data/codespace-run.log`).
 
 ### Gaming 원리
 
