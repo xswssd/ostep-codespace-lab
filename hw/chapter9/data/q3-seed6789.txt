@@ -1,0 +1,4 @@
+]633;E;for s in 6 7 8 9;7a6e0dc7-89fc-4031-9c6e-199d0a32c635]633;Cseed 6 Job0= 200 Job1= 193 diff= 7 F= 0.965
+seed 7 Job0= 200 Job1= 185 diff= 15 F= 0.925
+seed 8 Job0= 200 Job1= 191 diff= 9 F= 0.955
+seed 9 Job0= 200 Job1= 192 diff= 8 F= 0.96

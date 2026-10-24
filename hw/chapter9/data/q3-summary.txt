@@ -1,0 +1,10 @@
+seed 0: Job0=192 Job1=200 diff=8 F=0.9600
+seed 1: Job0=200 Job1=196 diff=4 F=0.9800
+seed 2: Job0=200 Job1=190 diff=10 F=0.9500
+seed 3: Job0=196 Job1=200 diff=4 F=0.9800
+seed 4: Job0=200 Job1=199 diff=1 F=0.9950
+seed 5: Job0=200 Job1=181 diff=19 F=0.9050
+seed 6: Job0=200 Job1=193 diff=7 F=0.9650
+seed 7: Job0=200 Job1=185 diff=15 F=0.9250
+seed 8: Job0=200 Job1=191 diff=9 F=0.9550
+seed 9: Job0=200 Job1=192 diff=8 F=0.9600

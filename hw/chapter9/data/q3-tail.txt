@@ -1,0 +1,40 @@
+===seed0===
+ (  job:0 timeleft:0 tix:--- )  (* job:1 timeleft:1 tix:100 ) 
+--> JOB 1 DONE at time 200
+
+===seed1===
+ (* job:0 timeleft:1 tix:100 )  (  job:1 timeleft:0 tix:--- ) 
+--> JOB 0 DONE at time 200
+
+===seed2===
+ (* job:0 timeleft:1 tix:100 )  (  job:1 timeleft:0 tix:--- ) 
+--> JOB 0 DONE at time 200
+
+===seed3===
+ (  job:0 timeleft:0 tix:--- )  (* job:1 timeleft:1 tix:100 ) 
+--> JOB 1 DONE at time 200
+
+===seed4===
+ (* job:0 timeleft:1 tix:100 )  (  job:1 timeleft:0 tix:--- ) 
+--> JOB 0 DONE at time 200
+
+===seed5===
+ (* job:0 timeleft:1 tix:100 )  (  job:1 timeleft:0 tix:--- ) 
+--> JOB 0 DONE at time 200
+
+===seed6===
+ (* job:0 timeleft:1 tix:100 )  (  job:1 timeleft:0 tix:--- ) 
+--> JOB 0 DONE at time 200
+
+===seed7===
+ (* job:0 timeleft:1 tix:100 )  (  job:1 timeleft:0 tix:--- ) 
+--> JOB 0 DONE at time 200
+
+===seed8===
+ (* job:0 timeleft:1 tix:100 )  (  job:1 timeleft:0 tix:--- ) 
+--> JOB 0 DONE at time 200
+
+===seed9===
+ (* job:0 timeleft:1 tix:100 )  (  job:1 timeleft:0 tix:--- ) 
+--> JOB 0 DONE at time 200
+

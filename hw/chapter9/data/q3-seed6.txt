@@ -1,0 +1,617 @@
+ARG jlist 100:100,100:100
+ARG jobs 3
+ARG maxlen 10
+ARG maxticket 100
+ARG quantum 1
+ARG seed 6
+
+Here is the job list, with the run time of each job: 
+  Job 0 ( length = 100, tickets = 100 )
+  Job 1 ( length = 100, tickets = 100 )
+
+
+** Solutions **
+
+Random 793340 -> Winning ticket 140 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:100 tix:100 )  (* job:1 timeleft:100 tix:100 ) 
+Random 821954 -> Winning ticket 154 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:100 tix:100 )  (* job:1 timeleft:99 tix:100 ) 
+Random 485035 -> Winning ticket 35 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:100 tix:100 )  (  job:1 timeleft:98 tix:100 ) 
+Random 261621 -> Winning ticket 21 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:99 tix:100 )  (  job:1 timeleft:98 tix:100 ) 
+Random 451 -> Winning ticket 51 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:98 tix:100 )  (  job:1 timeleft:98 tix:100 ) 
+Random 662819 -> Winning ticket 19 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:97 tix:100 )  (  job:1 timeleft:98 tix:100 ) 
+Random 470254 -> Winning ticket 54 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:96 tix:100 )  (  job:1 timeleft:98 tix:100 ) 
+Random 759731 -> Winning ticket 131 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:95 tix:100 )  (* job:1 timeleft:98 tix:100 ) 
+Random 373160 -> Winning ticket 160 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:95 tix:100 )  (* job:1 timeleft:97 tix:100 ) 
+Random 770140 -> Winning ticket 140 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:95 tix:100 )  (* job:1 timeleft:96 tix:100 ) 
+Random 272698 -> Winning ticket 98 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:95 tix:100 )  (  job:1 timeleft:95 tix:100 ) 
+Random 801916 -> Winning ticket 116 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:94 tix:100 )  (* job:1 timeleft:95 tix:100 ) 
+Random 729825 -> Winning ticket 25 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:94 tix:100 )  (  job:1 timeleft:94 tix:100 ) 
+Random 414006 -> Winning ticket 6 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:93 tix:100 )  (  job:1 timeleft:94 tix:100 ) 
+Random 538305 -> Winning ticket 105 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:92 tix:100 )  (* job:1 timeleft:94 tix:100 ) 
+Random 682052 -> Winning ticket 52 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:92 tix:100 )  (  job:1 timeleft:93 tix:100 ) 
+Random 192985 -> Winning ticket 185 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:91 tix:100 )  (* job:1 timeleft:93 tix:100 ) 
+Random 553615 -> Winning ticket 15 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:91 tix:100 )  (  job:1 timeleft:92 tix:100 ) 
+Random 805124 -> Winning ticket 124 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:90 tix:100 )  (* job:1 timeleft:92 tix:100 ) 
+Random 265521 -> Winning ticket 121 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:90 tix:100 )  (* job:1 timeleft:91 tix:100 ) 
+Random 803366 -> Winning ticket 166 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:90 tix:100 )  (* job:1 timeleft:90 tix:100 ) 
+Random 685690 -> Winning ticket 90 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:90 tix:100 )  (  job:1 timeleft:89 tix:100 ) 
+Random 844283 -> Winning ticket 83 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:89 tix:100 )  (  job:1 timeleft:89 tix:100 ) 
+Random 335582 -> Winning ticket 182 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:88 tix:100 )  (* job:1 timeleft:89 tix:100 ) 
+Random 93134 -> Winning ticket 134 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:88 tix:100 )  (* job:1 timeleft:88 tix:100 ) 
+Random 800283 -> Winning ticket 83 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:88 tix:100 )  (  job:1 timeleft:87 tix:100 ) 
+Random 804782 -> Winning ticket 182 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:87 tix:100 )  (* job:1 timeleft:87 tix:100 ) 
+Random 445212 -> Winning ticket 12 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:87 tix:100 )  (  job:1 timeleft:86 tix:100 ) 
+Random 93780 -> Winning ticket 180 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:86 tix:100 )  (* job:1 timeleft:86 tix:100 ) 
+Random 197162 -> Winning ticket 162 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:86 tix:100 )  (* job:1 timeleft:85 tix:100 ) 
+Random 634919 -> Winning ticket 119 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:86 tix:100 )  (* job:1 timeleft:84 tix:100 ) 
+Random 291183 -> Winning ticket 183 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:86 tix:100 )  (* job:1 timeleft:83 tix:100 ) 
+Random 951373 -> Winning ticket 173 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:86 tix:100 )  (* job:1 timeleft:82 tix:100 ) 
+Random 588570 -> Winning ticket 170 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:86 tix:100 )  (* job:1 timeleft:81 tix:100 ) 
+Random 200874 -> Winning ticket 74 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:86 tix:100 )  (  job:1 timeleft:80 tix:100 ) 
+Random 655404 -> Winning ticket 4 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:85 tix:100 )  (  job:1 timeleft:80 tix:100 ) 
+Random 360379 -> Winning ticket 179 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:84 tix:100 )  (* job:1 timeleft:80 tix:100 ) 
+Random 932738 -> Winning ticket 138 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:84 tix:100 )  (* job:1 timeleft:79 tix:100 ) 
+Random 909512 -> Winning ticket 112 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:84 tix:100 )  (* job:1 timeleft:78 tix:100 ) 
+Random 514651 -> Winning ticket 51 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:84 tix:100 )  (  job:1 timeleft:77 tix:100 ) 
+Random 644572 -> Winning ticket 172 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:83 tix:100 )  (* job:1 timeleft:77 tix:100 ) 
+Random 697911 -> Winning ticket 111 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:83 tix:100 )  (* job:1 timeleft:76 tix:100 ) 
+Random 805505 -> Winning ticket 105 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:83 tix:100 )  (* job:1 timeleft:75 tix:100 ) 
+Random 976375 -> Winning ticket 175 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:83 tix:100 )  (* job:1 timeleft:74 tix:100 ) 
+Random 28422 -> Winning ticket 22 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:83 tix:100 )  (  job:1 timeleft:73 tix:100 ) 
+Random 361376 -> Winning ticket 176 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:82 tix:100 )  (* job:1 timeleft:73 tix:100 ) 
+Random 601747 -> Winning ticket 147 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:82 tix:100 )  (* job:1 timeleft:72 tix:100 ) 
+Random 304324 -> Winning ticket 124 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:82 tix:100 )  (* job:1 timeleft:71 tix:100 ) 
+Random 589157 -> Winning ticket 157 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:82 tix:100 )  (* job:1 timeleft:70 tix:100 ) 
+Random 89687 -> Winning ticket 87 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:82 tix:100 )  (  job:1 timeleft:69 tix:100 ) 
+Random 880079 -> Winning ticket 79 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:81 tix:100 )  (  job:1 timeleft:69 tix:100 ) 
+Random 525263 -> Winning ticket 63 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:80 tix:100 )  (  job:1 timeleft:69 tix:100 ) 
+Random 116824 -> Winning ticket 24 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:79 tix:100 )  (  job:1 timeleft:69 tix:100 ) 
+Random 662741 -> Winning ticket 141 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:78 tix:100 )  (* job:1 timeleft:69 tix:100 ) 
+Random 312280 -> Winning ticket 80 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:78 tix:100 )  (  job:1 timeleft:68 tix:100 ) 
+Random 196224 -> Winning ticket 24 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:77 tix:100 )  (  job:1 timeleft:68 tix:100 ) 
+Random 483744 -> Winning ticket 144 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:76 tix:100 )  (* job:1 timeleft:68 tix:100 ) 
+Random 138105 -> Winning ticket 105 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:76 tix:100 )  (* job:1 timeleft:67 tix:100 ) 
+Random 209885 -> Winning ticket 85 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:76 tix:100 )  (  job:1 timeleft:66 tix:100 ) 
+Random 865540 -> Winning ticket 140 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:75 tix:100 )  (* job:1 timeleft:66 tix:100 ) 
+Random 698224 -> Winning ticket 24 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:75 tix:100 )  (  job:1 timeleft:65 tix:100 ) 
+Random 12522 -> Winning ticket 122 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:74 tix:100 )  (* job:1 timeleft:65 tix:100 ) 
+Random 778058 -> Winning ticket 58 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:74 tix:100 )  (  job:1 timeleft:64 tix:100 ) 
+Random 17058 -> Winning ticket 58 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:73 tix:100 )  (  job:1 timeleft:64 tix:100 ) 
+Random 332912 -> Winning ticket 112 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:72 tix:100 )  (* job:1 timeleft:64 tix:100 ) 
+Random 904438 -> Winning ticket 38 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:72 tix:100 )  (  job:1 timeleft:63 tix:100 ) 
+Random 620265 -> Winning ticket 65 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:71 tix:100 )  (  job:1 timeleft:63 tix:100 ) 
+Random 306124 -> Winning ticket 124 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:70 tix:100 )  (* job:1 timeleft:63 tix:100 ) 
+Random 377405 -> Winning ticket 5 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:70 tix:100 )  (  job:1 timeleft:62 tix:100 ) 
+Random 389165 -> Winning ticket 165 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:69 tix:100 )  (* job:1 timeleft:62 tix:100 ) 
+Random 126834 -> Winning ticket 34 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:69 tix:100 )  (  job:1 timeleft:61 tix:100 ) 
+Random 999879 -> Winning ticket 79 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:68 tix:100 )  (  job:1 timeleft:61 tix:100 ) 
+Random 53822 -> Winning ticket 22 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:67 tix:100 )  (  job:1 timeleft:61 tix:100 ) 
+Random 422889 -> Winning ticket 89 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:66 tix:100 )  (  job:1 timeleft:61 tix:100 ) 
+Random 746313 -> Winning ticket 113 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:65 tix:100 )  (* job:1 timeleft:61 tix:100 ) 
+Random 397764 -> Winning ticket 164 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:65 tix:100 )  (* job:1 timeleft:60 tix:100 ) 
+Random 980974 -> Winning ticket 174 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:65 tix:100 )  (* job:1 timeleft:59 tix:100 ) 
+Random 245311 -> Winning ticket 111 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:65 tix:100 )  (* job:1 timeleft:58 tix:100 ) 
+Random 979257 -> Winning ticket 57 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:65 tix:100 )  (  job:1 timeleft:57 tix:100 ) 
+Random 892257 -> Winning ticket 57 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:64 tix:100 )  (  job:1 timeleft:57 tix:100 ) 
+Random 670217 -> Winning ticket 17 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:63 tix:100 )  (  job:1 timeleft:57 tix:100 ) 
+Random 889513 -> Winning ticket 113 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:62 tix:100 )  (* job:1 timeleft:57 tix:100 ) 
+Random 447194 -> Winning ticket 194 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:62 tix:100 )  (* job:1 timeleft:56 tix:100 ) 
+Random 831260 -> Winning ticket 60 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:62 tix:100 )  (  job:1 timeleft:55 tix:100 ) 
+Random 796099 -> Winning ticket 99 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:61 tix:100 )  (  job:1 timeleft:55 tix:100 ) 
+Random 516687 -> Winning ticket 87 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:60 tix:100 )  (  job:1 timeleft:55 tix:100 ) 
+Random 470930 -> Winning ticket 130 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:59 tix:100 )  (* job:1 timeleft:55 tix:100 ) 
+Random 705673 -> Winning ticket 73 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:59 tix:100 )  (  job:1 timeleft:54 tix:100 ) 
+Random 409064 -> Winning ticket 64 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:58 tix:100 )  (  job:1 timeleft:54 tix:100 ) 
+Random 85930 -> Winning ticket 130 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:57 tix:100 )  (* job:1 timeleft:54 tix:100 ) 
+Random 746516 -> Winning ticket 116 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:57 tix:100 )  (* job:1 timeleft:53 tix:100 ) 
+Random 265819 -> Winning ticket 19 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:57 tix:100 )  (  job:1 timeleft:52 tix:100 ) 
+Random 487664 -> Winning ticket 64 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:56 tix:100 )  (  job:1 timeleft:52 tix:100 ) 
+Random 784030 -> Winning ticket 30 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:55 tix:100 )  (  job:1 timeleft:52 tix:100 ) 
+Random 172128 -> Winning ticket 128 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:54 tix:100 )  (* job:1 timeleft:52 tix:100 ) 
+Random 21873 -> Winning ticket 73 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:54 tix:100 )  (  job:1 timeleft:51 tix:100 ) 
+Random 123495 -> Winning ticket 95 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:53 tix:100 )  (  job:1 timeleft:51 tix:100 ) 
+Random 589416 -> Winning ticket 16 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:52 tix:100 )  (  job:1 timeleft:51 tix:100 ) 
+Random 361049 -> Winning ticket 49 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:51 tix:100 )  (  job:1 timeleft:51 tix:100 ) 
+Random 256312 -> Winning ticket 112 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:50 tix:100 )  (* job:1 timeleft:51 tix:100 ) 
+Random 451533 -> Winning ticket 133 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:50 tix:100 )  (* job:1 timeleft:50 tix:100 ) 
+Random 927598 -> Winning ticket 198 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:50 tix:100 )  (* job:1 timeleft:49 tix:100 ) 
+Random 254763 -> Winning ticket 163 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:50 tix:100 )  (* job:1 timeleft:48 tix:100 ) 
+Random 410572 -> Winning ticket 172 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:50 tix:100 )  (* job:1 timeleft:47 tix:100 ) 
+Random 879294 -> Winning ticket 94 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:50 tix:100 )  (  job:1 timeleft:46 tix:100 ) 
+Random 612177 -> Winning ticket 177 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:49 tix:100 )  (* job:1 timeleft:46 tix:100 ) 
+Random 267937 -> Winning ticket 137 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:49 tix:100 )  (* job:1 timeleft:45 tix:100 ) 
+Random 474709 -> Winning ticket 109 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:49 tix:100 )  (* job:1 timeleft:44 tix:100 ) 
+Random 478539 -> Winning ticket 139 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:49 tix:100 )  (* job:1 timeleft:43 tix:100 ) 
+Random 142185 -> Winning ticket 185 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:49 tix:100 )  (* job:1 timeleft:42 tix:100 ) 
+Random 377478 -> Winning ticket 78 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:49 tix:100 )  (  job:1 timeleft:41 tix:100 ) 
+Random 305673 -> Winning ticket 73 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:48 tix:100 )  (  job:1 timeleft:41 tix:100 ) 
+Random 804741 -> Winning ticket 141 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:47 tix:100 )  (* job:1 timeleft:41 tix:100 ) 
+Random 323390 -> Winning ticket 190 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:47 tix:100 )  (* job:1 timeleft:40 tix:100 ) 
+Random 659243 -> Winning ticket 43 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:47 tix:100 )  (  job:1 timeleft:39 tix:100 ) 
+Random 970767 -> Winning ticket 167 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:46 tix:100 )  (* job:1 timeleft:39 tix:100 ) 
+Random 923079 -> Winning ticket 79 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:46 tix:100 )  (  job:1 timeleft:38 tix:100 ) 
+Random 376043 -> Winning ticket 43 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:45 tix:100 )  (  job:1 timeleft:38 tix:100 ) 
+Random 603032 -> Winning ticket 32 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:44 tix:100 )  (  job:1 timeleft:38 tix:100 ) 
+Random 320113 -> Winning ticket 113 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:43 tix:100 )  (* job:1 timeleft:38 tix:100 ) 
+Random 398281 -> Winning ticket 81 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:43 tix:100 )  (  job:1 timeleft:37 tix:100 ) 
+Random 487999 -> Winning ticket 199 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:42 tix:100 )  (* job:1 timeleft:37 tix:100 ) 
+Random 793439 -> Winning ticket 39 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:42 tix:100 )  (  job:1 timeleft:36 tix:100 ) 
+Random 936613 -> Winning ticket 13 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:41 tix:100 )  (  job:1 timeleft:36 tix:100 ) 
+Random 290790 -> Winning ticket 190 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:40 tix:100 )  (* job:1 timeleft:36 tix:100 ) 
+Random 6192 -> Winning ticket 192 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:40 tix:100 )  (* job:1 timeleft:35 tix:100 ) 
+Random 449357 -> Winning ticket 157 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:40 tix:100 )  (* job:1 timeleft:34 tix:100 ) 
+Random 57105 -> Winning ticket 105 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:40 tix:100 )  (* job:1 timeleft:33 tix:100 ) 
+Random 30112 -> Winning ticket 112 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:40 tix:100 )  (* job:1 timeleft:32 tix:100 ) 
+Random 773573 -> Winning ticket 173 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:40 tix:100 )  (* job:1 timeleft:31 tix:100 ) 
+Random 112141 -> Winning ticket 141 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:40 tix:100 )  (* job:1 timeleft:30 tix:100 ) 
+Random 718507 -> Winning ticket 107 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:40 tix:100 )  (* job:1 timeleft:29 tix:100 ) 
+Random 362011 -> Winning ticket 11 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:40 tix:100 )  (  job:1 timeleft:28 tix:100 ) 
+Random 938441 -> Winning ticket 41 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:39 tix:100 )  (  job:1 timeleft:28 tix:100 ) 
+Random 853492 -> Winning ticket 92 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:38 tix:100 )  (  job:1 timeleft:28 tix:100 ) 
+Random 62274 -> Winning ticket 74 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:37 tix:100 )  (  job:1 timeleft:28 tix:100 ) 
+Random 192631 -> Winning ticket 31 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:36 tix:100 )  (  job:1 timeleft:28 tix:100 ) 
+Random 947392 -> Winning ticket 192 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:35 tix:100 )  (* job:1 timeleft:28 tix:100 ) 
+Random 613433 -> Winning ticket 33 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:35 tix:100 )  (  job:1 timeleft:27 tix:100 ) 
+Random 422112 -> Winning ticket 112 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:34 tix:100 )  (* job:1 timeleft:27 tix:100 ) 
+Random 782292 -> Winning ticket 92 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:34 tix:100 )  (  job:1 timeleft:26 tix:100 ) 
+Random 813514 -> Winning ticket 114 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:33 tix:100 )  (* job:1 timeleft:26 tix:100 ) 
+Random 491694 -> Winning ticket 94 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:33 tix:100 )  (  job:1 timeleft:25 tix:100 ) 
+Random 468899 -> Winning ticket 99 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:32 tix:100 )  (  job:1 timeleft:25 tix:100 ) 
+Random 100155 -> Winning ticket 155 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:31 tix:100 )  (* job:1 timeleft:25 tix:100 ) 
+Random 361972 -> Winning ticket 172 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:31 tix:100 )  (* job:1 timeleft:24 tix:100 ) 
+Random 144958 -> Winning ticket 158 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:31 tix:100 )  (* job:1 timeleft:23 tix:100 ) 
+Random 625594 -> Winning ticket 194 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:31 tix:100 )  (* job:1 timeleft:22 tix:100 ) 
+Random 606580 -> Winning ticket 180 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:31 tix:100 )  (* job:1 timeleft:21 tix:100 ) 
+Random 144276 -> Winning ticket 76 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:31 tix:100 )  (  job:1 timeleft:20 tix:100 ) 
+Random 628008 -> Winning ticket 8 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:30 tix:100 )  (  job:1 timeleft:20 tix:100 ) 
+Random 97322 -> Winning ticket 122 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:29 tix:100 )  (* job:1 timeleft:20 tix:100 ) 
+Random 105431 -> Winning ticket 31 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:29 tix:100 )  (  job:1 timeleft:19 tix:100 ) 
+Random 645570 -> Winning ticket 170 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:28 tix:100 )  (* job:1 timeleft:19 tix:100 ) 
+Random 462713 -> Winning ticket 113 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:28 tix:100 )  (* job:1 timeleft:18 tix:100 ) 
+Random 899586 -> Winning ticket 186 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:28 tix:100 )  (* job:1 timeleft:17 tix:100 ) 
+Random 629198 -> Winning ticket 198 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:28 tix:100 )  (* job:1 timeleft:16 tix:100 ) 
+Random 701371 -> Winning ticket 171 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:28 tix:100 )  (* job:1 timeleft:15 tix:100 ) 
+Random 127006 -> Winning ticket 6 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:28 tix:100 )  (  job:1 timeleft:14 tix:100 ) 
+Random 832664 -> Winning ticket 64 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:27 tix:100 )  (  job:1 timeleft:14 tix:100 ) 
+Random 83543 -> Winning ticket 143 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:26 tix:100 )  (* job:1 timeleft:14 tix:100 ) 
+Random 618122 -> Winning ticket 122 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:26 tix:100 )  (* job:1 timeleft:13 tix:100 ) 
+Random 911399 -> Winning ticket 199 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:26 tix:100 )  (* job:1 timeleft:12 tix:100 ) 
+Random 907730 -> Winning ticket 130 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:26 tix:100 )  (* job:1 timeleft:11 tix:100 ) 
+Random 893295 -> Winning ticket 95 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:26 tix:100 )  (  job:1 timeleft:10 tix:100 ) 
+Random 451984 -> Winning ticket 184 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:25 tix:100 )  (* job:1 timeleft:10 tix:100 ) 
+Random 693801 -> Winning ticket 1 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:25 tix:100 )  (  job:1 timeleft:9 tix:100 ) 
+Random 791333 -> Winning ticket 133 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:24 tix:100 )  (* job:1 timeleft:9 tix:100 ) 
+Random 137072 -> Winning ticket 72 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:24 tix:100 )  (  job:1 timeleft:8 tix:100 ) 
+Random 943402 -> Winning ticket 2 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:23 tix:100 )  (  job:1 timeleft:8 tix:100 ) 
+Random 908775 -> Winning ticket 175 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:22 tix:100 )  (* job:1 timeleft:8 tix:100 ) 
+Random 440887 -> Winning ticket 87 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:22 tix:100 )  (  job:1 timeleft:7 tix:100 ) 
+Random 778498 -> Winning ticket 98 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:21 tix:100 )  (  job:1 timeleft:7 tix:100 ) 
+Random 447079 -> Winning ticket 79 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:20 tix:100 )  (  job:1 timeleft:7 tix:100 ) 
+Random 276407 -> Winning ticket 7 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:19 tix:100 )  (  job:1 timeleft:7 tix:100 ) 
+Random 712479 -> Winning ticket 79 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:18 tix:100 )  (  job:1 timeleft:7 tix:100 ) 
+Random 63670 -> Winning ticket 70 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:17 tix:100 )  (  job:1 timeleft:7 tix:100 ) 
+Random 800199 -> Winning ticket 199 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:16 tix:100 )  (* job:1 timeleft:7 tix:100 ) 
+Random 978077 -> Winning ticket 77 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:16 tix:100 )  (  job:1 timeleft:6 tix:100 ) 
+Random 286070 -> Winning ticket 70 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:15 tix:100 )  (  job:1 timeleft:6 tix:100 ) 
+Random 939672 -> Winning ticket 72 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:14 tix:100 )  (  job:1 timeleft:6 tix:100 ) 
+Random 83681 -> Winning ticket 81 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:13 tix:100 )  (  job:1 timeleft:6 tix:100 ) 
+Random 858079 -> Winning ticket 79 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:12 tix:100 )  (  job:1 timeleft:6 tix:100 ) 
+Random 279808 -> Winning ticket 8 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:11 tix:100 )  (  job:1 timeleft:6 tix:100 ) 
+Random 966221 -> Winning ticket 21 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:10 tix:100 )  (  job:1 timeleft:6 tix:100 ) 
+Random 430697 -> Winning ticket 97 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:9 tix:100 )  (  job:1 timeleft:6 tix:100 ) 
+Random 922163 -> Winning ticket 163 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:8 tix:100 )  (* job:1 timeleft:6 tix:100 ) 
+Random 31913 -> Winning ticket 113 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:8 tix:100 )  (* job:1 timeleft:5 tix:100 ) 
+Random 85643 -> Winning ticket 43 (of 200) -> Run 0
+  Jobs:
+ (* job:0 timeleft:8 tix:100 )  (  job:1 timeleft:4 tix:100 ) 
+Random 816372 -> Winning ticket 172 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:7 tix:100 )  (* job:1 timeleft:4 tix:100 ) 
+Random 638573 -> Winning ticket 173 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:7 tix:100 )  (* job:1 timeleft:3 tix:100 ) 
+Random 535501 -> Winning ticket 101 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:7 tix:100 )  (* job:1 timeleft:2 tix:100 ) 
+Random 32712 -> Winning ticket 112 (of 200) -> Run 1
+  Jobs:
+ (  job:0 timeleft:7 tix:100 )  (* job:1 timeleft:1 tix:100 ) 
+--> JOB 1 DONE at time 193
+Random 173293 -> Winning ticket 93 (of 100) -> Run 0
+  Jobs:
+ (* job:0 timeleft:7 tix:100 )  (  job:1 timeleft:0 tix:--- ) 
+Random 370489 -> Winning ticket 89 (of 100) -> Run 0
+  Jobs:
+ (* job:0 timeleft:6 tix:100 )  (  job:1 timeleft:0 tix:--- ) 
+Random 52065 -> Winning ticket 65 (of 100) -> Run 0
+  Jobs:
+ (* job:0 timeleft:5 tix:100 )  (  job:1 timeleft:0 tix:--- ) 
+Random 993041 -> Winning ticket 41 (of 100) -> Run 0
+  Jobs:
+ (* job:0 timeleft:4 tix:100 )  (  job:1 timeleft:0 tix:--- ) 
+Random 765198 -> Winning ticket 98 (of 100) -> Run 0
+  Jobs:
+ (* job:0 timeleft:3 tix:100 )  (  job:1 timeleft:0 tix:--- ) 
+Random 949797 -> Winning ticket 97 (of 100) -> Run 0
+  Jobs:
+ (* job:0 timeleft:2 tix:100 )  (  job:1 timeleft:0 tix:--- ) 
+Random 700686 -> Winning ticket 86 (of 100) -> Run 0
+  Jobs:
+ (* job:0 timeleft:1 tix:100 )  (  job:1 timeleft:0 tix:--- ) 
+--> JOB 0 DONE at time 200
+

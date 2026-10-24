@@ -1,0 +1,32 @@
+q=1 seed=0 Job0=192 Job1=200 diff=8 F=0.9600
+q=1 seed=1 Job0=200 Job1=196 diff=4 F=0.9800
+q=1 seed=2 Job0=200 Job1=190 diff=10 F=0.9500
+q=1 seed=3 Job0=196 Job1=200 diff=4 F=0.9800
+q=1 seed=4 Job0=200 Job1=199 diff=1 F=0.9950
+q=10 seed=0 Job0=200 Job1=150 diff=50 F=0.7500
+q=10 seed=1 Job0=200 Job1=160 diff=40 F=0.8000
+q=10 seed=2 Job0=190 Job1=200 diff=10 F=0.9500
+q=10 seed=3 Job0=200 Job1=190 diff=10 F=0.9500
+q=10 seed=4 Job0=190 Job1=200 diff=10 F=0.9500
+q=2 seed=0 Job0=188 Job1=200 diff=12 F=0.9400
+q=2 seed=1 Job0=200 Job1=194 diff=6 F=0.9700
+q=2 seed=2 Job0=200 Job1=198 diff=2 F=0.9900
+q=2 seed=3 Job0=194 Job1=200 diff=6 F=0.9700
+q=2 seed=4 Job0=188 Job1=200 diff=12 F=0.9400
+q=5 seed=0 Job0=200 Job1=160 diff=40 F=0.8000
+q=5 seed=1 Job0=190 Job1=200 diff=10 F=0.9500
+q=5 seed=2 Job0=175 Job1=200 diff=25 F=0.8750
+q=5 seed=3 Job0=185 Job1=200 diff=15 F=0.9250
+q=5 seed=4 Job0=185 Job1=200 diff=15 F=0.9250
+q=50 seed=0 Job0=200 Job1=150 diff=50 F=0.7500
+q=50 seed=1 Job0=200 Job1=150 diff=50 F=0.7500
+q=50 seed=2 Job0=100 Job1=200 diff=100 F=0.5000
+q=50 seed=3 Job0=200 Job1=150 diff=50 F=0.7500
+q=50 seed=4 Job0=150 Job1=200 diff=50 F=0.7500
+
+=== averages ===
+q=1 avg_diff=5.40 avg_F=0.9730 n=5
+q=2 avg_diff=7.60 avg_F=0.9620 n=5
+q=5 avg_diff=21.00 avg_F=0.8950 n=5
+q=10 avg_diff=24.00 avg_F=0.8800 n=5
+q=50 avg_diff=60.00 avg_F=0.7000 n=5

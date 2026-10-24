@@ -1,0 +1,30 @@
+q=1 seed=0 J0=192 J1=200 diff=8 F=0.96
+q=1 seed=1 J0=196 J1=200 diff=4 F=0.98
+q=1 seed=2 J0=190 J1=200 diff=10 F=0.95
+q=1 seed=3 J0=196 J1=200 diff=4 F=0.98
+q=1 seed=4 J0=199 J1=200 diff=1 F=0.995
+q=1 AVG diff=5.4 F=0.973
+q=2 seed=0 J0=188 J1=200 diff=12 F=0.94
+q=2 seed=1 J0=194 J1=200 diff=6 F=0.97
+q=2 seed=2 J0=198 J1=200 diff=2 F=0.99
+q=2 seed=3 J0=194 J1=200 diff=6 F=0.97
+q=2 seed=4 J0=188 J1=200 diff=12 F=0.94
+q=2 AVG diff=7.6 F=0.962
+q=5 seed=0 J0=160 J1=200 diff=40 F=0.8
+q=5 seed=1 J0=190 J1=200 diff=10 F=0.95
+q=5 seed=2 J0=175 J1=200 diff=25 F=0.875
+q=5 seed=3 J0=185 J1=200 diff=15 F=0.925
+q=5 seed=4 J0=185 J1=200 diff=15 F=0.925
+q=5 AVG diff=21.0 F=0.895
+q=10 seed=0 J0=150 J1=200 diff=50 F=0.75
+q=10 seed=1 J0=160 J1=200 diff=40 F=0.8
+q=10 seed=2 J0=190 J1=200 diff=10 F=0.95
+q=10 seed=3 J0=190 J1=200 diff=10 F=0.95
+q=10 seed=4 J0=190 J1=200 diff=10 F=0.95
+q=10 AVG diff=24.0 F=0.88
+q=50 seed=0 J0=150 J1=200 diff=50 F=0.75
+q=50 seed=1 J0=150 J1=200 diff=50 F=0.75
+q=50 seed=2 J0=100 J1=200 diff=100 F=0.5
+q=50 seed=3 J0=150 J1=200 diff=50 F=0.75
+q=50 seed=4 J0=150 J1=200 diff=50 F=0.75
+q=50 AVG diff=60.0 F=0.7

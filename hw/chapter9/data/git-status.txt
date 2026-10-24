@@ -1,0 +1,3 @@
+-rw-rw-rw- 1 vscode vscode  1287 Oct 24 12:11 hw/chapter9/README.md
+-rw-rw-rw- 1 vscode vscode 16969 Oct 24 12:15 hw/chapter9/analysis.md
+422 hw/chapter9/analysis.md
