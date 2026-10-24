@@ -309,52 +309,73 @@ time 30–39: Job 0, time 40–49: Job 1, … 순서로 라운드 로빈.
 시뮬레이터 결과와 일치했다. 단일 큐 MLFQ = RR가 확인되었다.
 
 
-## Q3. MLFQ를 Round-Robin으로 설정
+## Q4. Gaming 스케줄러 — 99% CPU
 
-질문: 어떤 파라미터로 MLFQ를 RR(Round-Robin) 스케줄러와 동일하게 만들 수 있을까?
+질문: 구 규칙 4a/4b(`-S`)를 이용해, 2개 job workload에서 한 job이 **특정 시간 구간**에 CPU의 **99%**를 차지하도록 설계하라.
 
-### 설정 방법
+### Workload 설계
 
-핵심은 **`-n 1` (단일 큐)**이다.
+교재는 allotment을 다 쓰기 전에 I/O를 내어 우선순위를 유지하는 gaming을 설명한다.
+quantum=100ms일 때 **99ms마다 I/O**(`ioFreq=99`)를 내면, 한 주기(100 time unit) 안에서 gaming job이 Run 99회, 상대 job이 1회(I/O 대기 중) → **정확히 99% CPU**가 된다.
 
 | 파라미터 | 값 | 의미 |
 |----------|-----|------|
-| `-n 1` | 1개 큐 | 우선순위 레벨이 하나뿐 → 강등 없음 |
-| `-q 10` | quantum=10ms | RR time slice |
-| `-j 3 -m 30 -M 0` | 3 jobs, 최대 30ms, I/O 없음 | 검증용 workload |
-
-MLFQ가 RR로 동작하는 이유:
-- 여러 큐가 없으면 job이 한 단계 아래로 내려갈 곳이 없다.
-- allotment을 다 써도 같은 큐(Priority 0)에 남는다.
-- 같은 큐에서는 FIFO + time slice로 CPU를 나누므로, 이것이 곧 Round-Robin이다.
+| `-n 3 -q 100` | 3개 큐, quantum=100ms | 최고 큐 allotment = 100ms |
+| `-l 0,500,0:0,500,99` | Job0: CPU 500ms / Job1: CPU 500ms, ioFreq=99 | Job1이 gaming job |
+| `-i 1` | I/O 시간 1ms | I/O 중 Job0가 1 tick CPU 사용 |
+| `-S` | stayAfterIO | I/O 후 Priority 2 유지 (구 규칙 4a/4b) |
 
 명령:
 ```
-./mlfq.py -n 1 -q 10 -j 3 -m 30 -M 0 -c
+./mlfq.py -n 3 -q 100 -l 0,500,0:0,500,99 -i 1 -S -c
 ```
 
-출력 파일: data/q3-rr.txt
+출력 파일: data/q4-gaming.txt
 
-### 예측
+### Gaming 원리
 
-3개 job이 동시 도착하면, 각 job이 10ms씩 번갈아 실행된다.
-time 0–9: Job 0, time 10–19: Job 1, time 20–29: Job 2,
-time 30–39: Job 0, time 40–49: Job 1, … 순서로 라운드 로빈.
+1. Job 0이 time 0–99에 최고 우선순위에서 첫 quantum(100ms)을 사용한다.
+2. time 100부터 Job 1이 실행을 시작한다.
+3. Job 1은 99ms CPU 실행 후 I/O를 발생시킨다 (`ioFreq=99`).
+4. `-S` 때문에 I/O 후에도 Priority 2에 남고, ticks/allotment이 리셋된다.
+5. I/O 1ms 동안 Job 0이 1 tick만 실행되고, Job 1이 다시 최고 우선순위로 돌아온다.
+6. 이 패턴이 반복되면 Job 1이 CPU를 거의 독점한다.
+
+### 99% CPU 시간 구간
+
+**첫 번째 gaming 주기: time 100–199**
+
+| 구간 | Job 1 Run | Job 0 Run | Job 1 비율 |
+|------|-----------|-----------|------------|
+| time 100–199 | 99 | 1 | **99.0%** |
+
+동일 패턴이 time 200–299, 300–399, … 에서 반복된다.
+Job 1이 완료되기 전까지 각 100ms 주기마다 99%를 유지한다.
+
+trace에서 확인:
+- time 199: `IO_START by JOB 1` (99ms 실행 직후)
+- time 100–198: `Run JOB 1 at PRIORITY 2` 연속 99회
+- time 199: `Run JOB 0` 1회 (Job 1 I/O 중)
+
+### 예측 (통계)
 
 | Job | response | turnaround |
 |-----|----------|------------|
-| 0 | 0 | 53 |
-| 1 | 10 | 43 |
-| 2 | 20 | 48 |
+| 0 | 0 | 1000 |
+| 1 | 100 | 605 |
 
-검증: trace에서 Job 0→1→2→0→1→2→0 순서로 10ms quantum씩 실행되었고,
-시뮬레이터 결과와 일치했다. 단일 큐 MLFQ = RR가 확인되었다.
+Job 0은 gaming 때문에 turnaround가 길고, Job 1은 빠르게 완료된다.
 
-## 결론 (Q1–Q3)
+검증: time 100–199 구간 Run 행 100개 중 Job 1이 99개(99.0%)였고,
+시뮬레이터 최종 통계와 위 표가 일치했다.
+
+
+## 결론 (Q1–Q4)
 
 Q1에서 2 jobs, 2 queues 환경의 MLFQ 기본 동작을 확인했고,
 Q2에서 교재 Figure 8.2–8.7의 7가지 시나리오를 명령으로 재현했다.
 Q3에서 `-n 1` 단일 큐 설정으로 MLFQ가 RR과 동일하게 동작함을 확인했다.
+Q4에서 `-S`와 `ioFreq=99`(quantum=100)로 gaming job이 time 100–199 구간에서 CPU 99%를 차지함을 확인했다.
 모든 예측이 시뮬레이터(-c) 결과와 일치했다.
 
 시뮬레이터 원본 출력은 hw/chapter8/data/ 폴더에 있다.
