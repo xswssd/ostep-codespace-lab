@@ -416,6 +416,8 @@ Job 0(CPU 집약)을 기아시키는 환경을 사용했다.
 
 출력 파일: data/q5-boost.txt
 
+실행 환경: GitHub Codespace (`fictional-umbrella`)에서 공식 `mlfq.py`로 재실행함 (`data/codespace-run.log`).
+
 ### 예측
 
 - time 200, 400에 `BOOST ( every 200 )` 이벤트 발생
@@ -471,6 +473,8 @@ I/O job이 살아 있는 동안 Job 0이 정확히 5.0% CPU를 받았다.
 ./mlfq.py -n 2 -q 10 -l 0,50,0:0,50,11 -i 1 -S -I -c
 ```
 출력 파일: data/q6-with-I.txt
+
+실행 환경: GitHub Codespace (`fictional-umbrella`)에서 공식 `mlfq.py`로 재실행함 (`data/codespace-run.log`).
 
 ### 예측
 
